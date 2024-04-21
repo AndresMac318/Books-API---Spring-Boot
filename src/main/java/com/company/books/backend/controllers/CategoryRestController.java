@@ -19,16 +19,16 @@ import com.company.books.backend.service.ICategoriaService;
 
 @RestController
 @RequestMapping("/v1")
-public class CategoriaRestController {
+public class CategoryRestController {
 	
 	// variable log que permitira escribir msj de log en nuestra app
-	private static final Logger log = LoggerFactory.getLogger(CategoriaRestController.class);
+	private static final Logger log = LoggerFactory.getLogger(CategoryRestController.class);
 	
 	@Autowired
 	private ICategoriaService service;
 	
 	// con ResponseEntity nos permite devolver un statuscode http
-	@GetMapping("/categorias")
+	@GetMapping("/categories")
 	public ResponseEntity<CategoryResponseRest> consultaCat() {
 		
 		log.info("Paso por el controller consultaCat()");
@@ -38,25 +38,25 @@ public class CategoriaRestController {
 		return response;
 	}
 	
-	@GetMapping("/categorias/{id}")
+	@GetMapping("/categories/{id}")
 	public ResponseEntity<CategoryResponseRest> getCategoryByID(@PathVariable("id") Long id){
 		ResponseEntity<CategoryResponseRest> response = service.getCategoryByID(id);
 		return response;
 	}
 	
-	@PostMapping("/categorias")
+	@PostMapping("/categories")
 	public ResponseEntity<CategoryResponseRest> create(@RequestBody Category request){
 		ResponseEntity<CategoryResponseRest> response = service.create(request);
 		return response;
 	}
 	
-	@PutMapping("/categorias/{id}")
+	@PutMapping("/categories/{id}")
 	public ResponseEntity<CategoryResponseRest> update(@RequestBody Category request, @PathVariable("id") Long id){
 		ResponseEntity<CategoryResponseRest> response = service.update(request, id);
 		return response;
 	}
 	
-	@DeleteMapping("/categorias/{id}")
+	@DeleteMapping("/categories/{id}")
 	public ResponseEntity<CategoryResponseRest> delete(@PathVariable("id") Long id){
 		ResponseEntity<CategoryResponseRest> response = service.delete(id);
 		return response;

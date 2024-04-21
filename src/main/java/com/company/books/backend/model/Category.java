@@ -9,7 +9,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "categorias")
+@Table(name = "categories")
 public class Category implements Serializable {
 
 	/**

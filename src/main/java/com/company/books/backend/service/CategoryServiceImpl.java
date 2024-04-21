@@ -17,10 +17,10 @@ import com.company.books.backend.model.dao.ICategoryDao;
 import com.company.books.backend.response.CategoryResponseRest;
 
 @Service
-public class CategoriaServiceImpl implements ICategoriaService {
+public class CategoryServiceImpl implements ICategoriaService {
 	
 	// variable log que permitira escribir msj de log en nuestra app
-	private static final Logger log = LoggerFactory.getLogger(CategoriaServiceImpl.class);
+	private static final Logger log = LoggerFactory.getLogger(CategoryServiceImpl.class);
 	
 	//uso de autowired para inyectar la clase "CategoriaDAO" al servicio, facilita creacion de objetos y creacion de dependencias
 	@Autowired
