@@ -1,0 +1,38 @@
+
+services:
+  mysql:
+    image: mysql
+    container_name: mysql-db-container
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: db_books
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "3307:3306"
+    networks:
+      - books-network
+    volumes:
+      - ./data/db_books:/var/lib/mysql
+      - ./data/db_books.sql:/docker-entrypoint-initdb.d/db_books.sql
+
+  apirest-books-springboot:
+    depends_on:
+      - mysql
+    image: andresmac318/apirest-books:1.0.1
+    container_name: apirest-container
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8082:8081"
+    environment:
+      MYSQL_HOST: ${MYSQL_HOST}
+      MYSQL_PORT: ${MYSQL_PORT}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    networks:
+      - books-network
+
+networks:
+  books-network: {}

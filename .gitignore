@@ -28,6 +28,10 @@ target/
 build/
 !**/src/main/**/build/
 !**/src/test/**/build/
+.env
 
 ### VS Code ###
 .vscode/
+
+##### Code #####
+/data/db_books

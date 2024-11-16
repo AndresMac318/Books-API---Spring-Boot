@@ -21,7 +21,7 @@ import com.company.books.backend.response.CategoryResponseRest;
 
 public class CategoryServiceImplTest {
 	
-	// para indicar que utilice el Mock, que inyecte todos los mocks de la categoriadao
+	// to indicate that it uses the Mock, which injects all the mocks of the category
 	@InjectMocks
 	CategoryServiceImpl service;
 	
@@ -38,14 +38,14 @@ public class CategoryServiceImplTest {
 	
 	@Test
 	public void getCategoriesTest() {
-		// when: cuando se use el metodo findAll se retornara una lista de datos enduro
+		// when: execute method findAll() will return a mock list of elements
 		when(categoryDao.findAll()).thenReturn(list);
 		
 		ResponseEntity<CategoryResponseRest> response = service.getCategories();
 		
 		assertEquals(4, response.getBody().getCategoryResponse().getCategoria().size());
 		
-		// verifica que categoryDao llamo 1 vez a findAll()
+		// verify that categoryDao call 1 time to findAll()
 		verify(categoryDao, times(1)).findAll();
 	}
 	

@@ -1,0 +1,11 @@
+### ENV FILE ###
+.env
+
+### GIT ###
+.git
+.gitignore
+
+### DOCKER ###
+Dockerfile
+.dockerignore
+docker-compose.yml

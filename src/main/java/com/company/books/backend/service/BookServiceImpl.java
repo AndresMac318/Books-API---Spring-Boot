@@ -79,7 +79,7 @@ public class BookServiceImpl implements IBookService {
 		
 		try {
 			
-			// validar campos
+			// validation
 			if (book.getName() == null || book.getName().isEmpty() || book.getName().length() < 3) {
 		        response.setMetadata("Response not ok", "-1", "The 'name' field is Required");
 		        return new ResponseEntity<BookResponseRest>(response, HttpStatus.BAD_REQUEST);
@@ -120,15 +120,15 @@ public class BookServiceImpl implements IBookService {
 		
 		try {
 			
-			//se consulta por id la categoria a actualizar
+			// get category to update
 			Optional<Book> searchedBook = bookDao.findById(id);
 			
 			if (searchedBook.isPresent()) {
-				//se setean los valores del libro consultado por los enviados en el body
+				// setting search book data x data in body
 				searchedBook.get().setName(book.getName());
 				searchedBook.get().setDescription(book.getDescription());
 				
-				Book updatedBook = bookDao.save(searchedBook.get()); //actualizando
+				Book updatedBook = bookDao.save(searchedBook.get()); // updating
 				
 				if(updatedBook != null) {
 					response.setMetadata("Response ok", "200", "Book updated!");

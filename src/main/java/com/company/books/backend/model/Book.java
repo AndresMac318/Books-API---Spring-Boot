@@ -16,9 +16,6 @@ import jakarta.persistence.Table;
 @Table(name = "books")
 public class Book implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 6281168164525854774L;
 
 	@Id
@@ -26,9 +23,10 @@ public class Book implements Serializable {
 	private Long id;
 	
 	private String name;
+	
 	private String description;
 	
-	// referencia a la clase categoria (todo libro tiene una categoria)
+	// ref to class category
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Category category;
