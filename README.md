@@ -41,7 +41,14 @@ Ready, you can now run the project!
 
 Standing at the root of the project.
 
-Run command `docker compose up`, ready the project was running in url [http://localhost:8082/v1/auth](http://localhost:8082/v1/auth)
+### Run Project in Development Server
+
+Run command `docker compose -f docker-compose.dev.yml up`
+
+### Run Project in Production Server
+Run command `docker compose up` 
+
+Ready the project was running in url [http://localhost:8082/v1/](http://localhost:8082/v1/)
 
 ## API Documentation with Swagger
 
